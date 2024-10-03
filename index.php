@@ -1,5 +1,5 @@
 <?php
-include '../includes/config.php';
+include('includes/config.php');
 $conn = connect_db();
 
 // Get all adjectives
@@ -196,7 +196,7 @@ $conn->close();
                     <td><?php echo htmlspecialchars($adjective['adjetivo']); ?></td>
                     <td class="button-container">
                         <a href="ejemplos.php?id=<?php echo $adjective['id']; ?>">View examples</a>
-                        <a href="../comparar.html">POWER COMPARE</a>
+                        <a href="../PROYECTO-INGLES/index.html">POWER COMPARE</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
