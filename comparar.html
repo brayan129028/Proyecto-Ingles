@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjective Comparator</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+    
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+    
+        select, input[type="text"], button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            max-width: 350px;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+    
+        select:focus, input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            transform: translateY(-2px);
+        }
+    
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+    
+        button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+    
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+    
+        .result:hover {
+            transform: scale(1.02);
+        }
+    
+        .home-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        .home-link:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    
+        .home-link svg {
+            margin-right: 8px;
+        }
+    </style>
+    
+    
+    
+</head>
+<body>
+    <h1>Adjective Comparator</h1>
+
+    <label for="adjective">Select an adjective:</label>
+    <select id="adjective">
+        <option value="good">Good</option>
+        <option value="bad">Bad</option>
+        <option value="big">Big</option>
+        <option value="small">Small</option>
+        <option value="beautiful">Beautiful</option>
+        <option value="intelligent">Intelligent</option>
+        <option value="fast">Fast</option>
+        <option value="slow">Slow</option>
+        <option value="rich">Rich</option>
+        <option value="poor">Poor</option>
+        <option value="strong">Strong</option>
+        <option value="weak">Weak</option>
+        <option value="easy">Easy</option>
+        <option value="difficult">Difficult</option>
+        <option value="short">Short</option>
+        <option value="long">Long</option>
+        <option value="near">Near</option>
+        <option value="far">Far</option>
+        <option value="hot">Hot</option>
+        <option value="cold">Cold</option>
+    </select>
+
+    <label for="form">Select the form:</label>
+    <select id="form">
+        <option value="positive">Positive</option>
+        <option value="comparative">Comparative</option>
+        <option value="superlative">Superlative</option>
+    </select>
+
+    <label for="sentence">Write a sentence using the adjective:</label>
+    <input type="text" id="sentence" placeholder="Write your sentence here">
+
+    <button onclick="evaluateSentence()">Evaluate Sentence</button>
+
+    <div class="result" id="result" style="opacity: 0;"></div>
+   
+    <a href="../PROYECTO-INGLES/php/index.php" class="home-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+        </svg>
+        Home Page
+    </a>
+
+    <script>
+        const adjectives = {
+            "good": { "positive": "good", "comparative": "better", "superlative": "the best" },
+            "bad": { "positive": "bad", "comparative": "worse", "superlative": "the worst" },
+            "big": { "positive": "big", "comparative": "bigger", "superlative": "the biggest" },
+            "small": { "positive": "small", "comparative": "smaller", "superlative": "the smallest" },
+            "beautiful": { "positive": "beautiful", "comparative": "more beautiful", "superlative": "the most beautiful" },
+            "intelligent": { "positive": "intelligent", "comparative": "more intelligent", "superlative": "the most intelligent" },
+            "fast": { "positive": "fast", "comparative": "faster", "superlative": "the fastest" },
+            "slow": { "positive": "slow", "comparative": "slower", "superlative": "the slowest" },
+            "rich": { "positive": "rich", "comparative": "richer", "superlative": "the richest" },
+            "poor": { "positive": "poor", "comparative": "poorer", "superlative": "the poorest" },
+            "strong": { "positive": "strong", "comparative": "stronger", "superlative": "the strongest" },
+            "weak": { "positive": "weak", "comparative": "weaker", "superlative": "the weakest" },
+            "easy": { "positive": "easy", "comparative": "easier", "superlative": "the easiest" },
+            "difficult": { "positive": "difficult", "comparative": "more difficult", "superlative": "the most difficult" },
+            "short": { "positive": "short", "comparative": "shorter", "superlative": "the shortest" },
+            "long": { "positive": "long", "comparative": "longer", "superlative": "the longest" },
+            "near": { "positive": "near", "comparative": "nearer", "superlative": "the nearest" },
+            "far": { "positive": "far", "comparative": "further", "superlative": "the furthest" },
+            "hot": { "positive": "hot", "comparative": "hotter", "superlative": "the hottest" },
+            "cold": { "positive": "cold", "comparative": "colder", "superlative": "the coldest" },
+        };
+
+        function evaluateSentence() {
+            const selectedAdjective = document.getElementById("adjective").value;
+            const selectedForm = document.getElementById("form").value;
+            const sentenceInput = document.getElementById("sentence").value.toLowerCase();
+            const resultDiv = document.getElementById("result");
+
+            if (!sentenceInput) {
+                resultDiv.innerText = "Please write a sentence.";
+                resultDiv.style.opacity = 1;
+                return;
+            }
+
+            const correctForm = adjectives[selectedAdjective][selectedForm];
+
+            resultDiv.innerText = `The ${selectedForm} form of "${selectedAdjective}" is "${correctForm}".`;
+            resultDiv.style.opacity = 1;
+        }
+    </script>
+</body>
+</html>

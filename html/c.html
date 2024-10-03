@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Pruebas de Software</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+        }
+
+        .highlight {
+            background-color: #ffc107;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Cronograma de Pruebas de Software</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Actividad</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Duración (días)</th>
+            <th>Dependencias</th>
+            <th>Hitos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Planificación de Pruebas</td>
+            <td>01/10/2024</td>
+            <td>03/10/2024</td>
+            <td>3</td>
+            <td>-</td>
+            <td class="highlight">Hito 1: Plan de Pruebas Aprobado</td>
+        </tr>
+        <tr>
+            <td>Diseño de Casos de Prueba</td>
+            <td>04/10/2024</td>
+            <td>08/10/2024</td>
+            <td>5</td>
+            <td>Planificación de Pruebas</td>
+            <td class="highlight">Hito 2: Casos de Prueba Diseñados</td>
+        </tr>
+        <tr>
+            <td>Configuración del Entorno de Pruebas</td>
+            <td>09/10/2024</td>
+            <td>10/10/2024</td>
+            <td>2</td>
+            <td>Diseño de Casos de Prueba</td>
+            <td class="highlight">Hito 3: Entorno Configurado</td>
+        </tr>
+        <tr>
+            <td>Ejecución de Pruebas</td>
+            <td>11/10/2024</td>
+            <td>20/10/2024</td>
+            <td>10</td>
+            <td>Configuración del Entorno de Pruebas</td>
+            <td class="highlight">Hito 4: Pruebas Ejecutadas</td>
+        </tr>
+        <tr>
+            <td>Registro de Errores y Seguimiento</td>
+            <td>21/10/2024</td>
+            <td>25/10/2024</td>
+            <td>5</td>
+            <td>Ejecución de Pruebas</td>
+            <td class="highlight">Hito 5: Errores Registrados</td>
+        </tr>
+        <tr>
+            <td>Pruebas de Usabilidad</td>
+            <td>26/10/2024</td>
+            <td>28/10/2024</td>
+            <td>3</td>
+            <td>Ejecución de Pruebas</td>
+            <td class="highlight">Hito 6: Usabilidad Evaluada</td>
+        </tr>
+        <tr>
+            <td>Generación de Reportes de Pruebas</td>
+            <td>29/10/2024</td>
+            <td>31/10/2024</td>
+            <td>3</td>
+            <td>Registro de Errores y Seguimiento</td>
+            <td class="highlight">Hito 7: Reportes Generados</td>
+        </tr>
+        <tr>
+            <td>Cierre de Pruebas y Lecciones Aprendidas</td>
+            <td>01/11/2024</td>
+            <td>03/11/2024</td>
+            <td>3</td>
+            <td>Generación de Reportes de Pruebas</td>
+            <td class="highlight">Hito 8: Pruebas Completadas</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="footer">
+    &copy; 2024 - Cronograma de Pruebas de Software
+</div>
+
+</body>
+</html>
