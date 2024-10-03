@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Evitar ciclos de redirección con /index.php
+RewriteRule ^index\.php$ - [L]
+
+# Redirigir a index.php si no se especifica un archivo
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
