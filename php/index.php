@@ -1,5 +1,5 @@
 <?php
-include('includes/config.php'); 
+include('../includes/config.php');
 $conn = connect_db();
 
 // Get all adjectives
