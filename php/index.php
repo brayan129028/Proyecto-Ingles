@@ -195,8 +195,9 @@ $conn->close();
                 <tr>
                     <td><?php echo htmlspecialchars($adjective['adjetivo']); ?></td>
                     <td class="button-container">
-                        <a href="ejemplos.php?id=<?php echo $adjective['id']; ?>">View examples</a>
-                        <a href="index.html">POWER COMPARE</a>
+                        <a href="../php/ejemplos.php?id=<?php echo $adjective['id']; ?>">View examples</a>
+
+                        <a href="../index.html">POWER COMPARE</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
